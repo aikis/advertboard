@@ -67,7 +67,6 @@ Testapp::Application.configure do
 
   # To use devise mailer
   config.action_mailer.default_url_options = { :host => 'http://advertboard.heroku.com/' }
-  require 'tlsmail'    
   Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
 
   ActionMailer::Base.delivery_method = :smtp
