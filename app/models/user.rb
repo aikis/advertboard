@@ -10,12 +10,6 @@ class User < ActiveRecord::Base
   # Roles [Cancan]
   ROLES = %w[admin moderator user]
 
-  # Sunspot indexing
-  after_save :commitme
-  searchable do
-    text :address
-  end
-
   # Gmaps location
   acts_as_gmappable :check_process => false
 
@@ -40,11 +34,5 @@ class User < ActiveRecord::Base
     else
       User.create(:login => login, :password => Devise.friendly_token[0,20])
     end
-  end
-
-  private
-  def commitme
-    Sunspot.index self
-    Sunspot.commit
   end
 end

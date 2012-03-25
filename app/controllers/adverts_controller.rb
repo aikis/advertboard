@@ -3,11 +3,7 @@ class AdvertsController < ApplicationController
   # GET /adverts
   # GET /adverts.json
   def index
-    @search = Advert.search do
-      fulltext params[:search]
-      order_by :updated_at, :desc
-    end
-    @adverts = @search.results
+    @adverts = Advert.all
 
     respond_to do |format|
       format.html # index.html.erb
