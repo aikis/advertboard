@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :adverts, :dependent => :delete_all
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,
@@ -11,7 +12,7 @@ class User < ActiveRecord::Base
   ROLES = %w[admin moderator user]
 
   # Gmaps location
-  acts_as_gmappable :check_process => false
+  acts_as_gmappable :check_process => false, :validation => false
 
   def gmaps4rails_address
   #describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki
