@@ -49,6 +49,9 @@ gem "omniauth-facebook"
 gem "omniauth-twitter"
 gem "omniauth-google-oauth2"
 
+# To use Mailer
+gem 'tlsmail'
+
 # To use HAML
 gem "haml-rails"
 
