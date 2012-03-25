@@ -9,6 +9,9 @@ gem 'rails', '3.2.2'
 group :production do
   gem "pg"
 end
+group :development do
+  gem 'sqlite3'
+end
 
 
 # Gems used only for assets and not required
@@ -59,8 +62,5 @@ gem 'gmaps4rails'
 gem "paperclip", "~> 2.7"
 
 # To use fulltext search
+gem 'sunspot_solr'
 gem 'sunspot_rails'
-group :development do
-  gem 'sunspot_solr'
-  gem 'sqlite3'
-end
