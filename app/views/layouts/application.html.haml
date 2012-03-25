@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+%html
+  %head
+    %title Testapp
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+%body
+  = link_to "All adverts", root_path
+  = link_to "All users", users_path
+  %br
+  - if user_signed_in?
+    You are signed in as 
+    = current_user.full_name
+    = link_to "Edit profile", edit_user_registration_path
+    = link_to "Sign out", destroy_user_session_path, :method => :delete
+  - else
+    You are not sign in now
+    Sign in with
+    = link_to 'sign in', new_user_session_path
+    or
+    = link_to image_tag("facebook.png", :size => "50x50"), user_omniauth_authorize_path(:facebook)
+    = link_to image_tag("twitter.png", :size => "50x50"), user_omniauth_authorize_path(:twitter)
+    
+  %p{:class => "notice"} 
+    = notice
+  %p{:class => "alert"}
+    = alert
+
+  = yield
+  
+  = yield :scripts

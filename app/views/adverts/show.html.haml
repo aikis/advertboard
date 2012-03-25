@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Text:
+  Author: 
+  = @advert.user.email
+  = image_tag @advert.image.url(:medium), :alt => "AdImage"
+  = @advert.text
+
+= link_to 'Edit', edit_advert_path(@advert)
+\|
+= link_to 'Back', adverts_path
