@@ -63,3 +63,9 @@ gem 'gmaps4rails'
 
 # To add picts
 gem "paperclip", "~> 2.7"
+
+# To use search
+gem 'tanker'
+
+# To use textile style
+gem 'RedCloth'

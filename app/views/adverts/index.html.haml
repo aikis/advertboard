@@ -13,7 +13,7 @@
   - @adverts.each do |advert|
     %tr
       %td= image_tag advert.image.url(:thumb), :alt => "AdImage"
-      %td= advert.text
+      %td= raw safe_textilize(advert.text)
       %td
         Added by
         = advert.user.full_name

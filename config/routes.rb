@@ -2,8 +2,8 @@ Testapp::Application.routes.draw do
   resources :adverts
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  resources :users, :except => [:new, :create, :edit, :update]
   root :to => "adverts#index"
+  resources :users, :only => [:index, :show]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

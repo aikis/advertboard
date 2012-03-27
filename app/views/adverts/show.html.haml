@@ -5,7 +5,7 @@
   Author: 
   = @advert.user.email
   = image_tag @advert.image.url(:medium), :alt => "AdImage"
-  = @advert.text
+  = raw safe_textilize(@advert.text)
 
 = link_to 'Edit', edit_advert_path(@advert)
 \|
