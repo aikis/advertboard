@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :login, :full_name, :birthday, :address, :city, :state, :country, :zip, :email, :password, :password_confirmation, :remember_me,  :latitude, :longitude, :gmaps
 
+  # Validate all fields are not empty
+  validates :login, :full_name, :birthday, :address, :city, :state, :country, :zip, :presence => true
+
   # Roles [Cancan]
   ROLES = %w[admin moderator user]
 
@@ -25,7 +28,7 @@ class User < ActiveRecord::Base
     if user = User.where(:email => data.email).first
       user
     else # Create a user with a stub password. 
-      User.create!(:email => data.email, :password => Devise.friendly_token[0,20]) 
+      User.new(:email => data.email, :password => Devise.friendly_token[0,20]) 
     end
   end
   def self.find_for_twitter_oauth(access_token, signed_in_resource=nil)
