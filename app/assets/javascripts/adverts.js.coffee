@@ -8,17 +8,19 @@ $(document).ready ->
       "/comments.json"
       $("#new_comment").serialize()
       (data) =>
-        $("#new_comment").before("<p class='comment'>" + data.text + "</p>")
+        $str ="<p>" + data.text + "</p>" + "<a href='/comments/" + data.id + "/edit'>Edit</a>"
+        $("#comment_label").before("<div class='comment'>" + $str + "</div>")
         $("#noentry").remove()
-        $("#new_comment").remove()
-        $("#comment_label").remove()
       "json"
     )
   $(".delete_link").click (event) ->
     event.preventDefault()
+    $parent = $(this).parent()
     $.ajax(
       type: "DELETE"
       url: $(this).attr("href") + ".json"
-      success: (data) ->
-        $(this).parent().remove()
+      success: (data)->
+        $parent.slideUp()
+      error: (data, textStatus)->
+        alert "DB delete error: no entry found!"
     )

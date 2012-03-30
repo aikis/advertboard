@@ -1,24 +1,24 @@
-%p
-  %b 
-  = image_tag @advert.image.url(:medium), :alt => "AdImage"
-  Author:
-  = @advert.user.email
-  = raw safe_textilize(@advert.text)
-  = link_to 'Edit', edit_advert_path(@advert)
-  \|
-  = link_to 'Back', adverts_path
-  %br
-  Comments
-  %br
-  - if !@advert.comments.empty?
-    - @advert.comments.each do |comment|
-      %p.comment
-        = raw safe_textilize(comment.text)
+= image_tag @advert.image.url(:medium), :alt => "AdImage"
+Author:
+= @advert.user.email
+= raw safe_textilize(@advert.text)
+= link_to 'Edit', edit_advert_path(@advert)
+\|
+= link_to 'Back', adverts_path
+%br
+Comments
+%br
+- if !@advert.comments.empty?
+  - @advert.comments.each do |comment|
+    .comment
+      = raw safe_textilize(comment.text)
+      - if can? :update, comment
         = link_to 'Edit', edit_comment_path(comment)
+      - if can? :destroy, comment
         = link_to 'Destroy', comment, :class => "delete_link"
-  - else
-    %p#noentry
-      No one commented it yet. Be the first who.
-  %p#comment_label 
-    New comment:
-  = render "comments/form"
+- else
+  %p#noentry 
+    No one commented it yet. Be the first who.
+%p#comment_label 
+  New comment:
+= render "comments/form"

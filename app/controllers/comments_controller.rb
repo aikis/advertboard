@@ -44,7 +44,6 @@ class CommentsController < ApplicationController
     @comment = Comment.new(params[:comment])
     @comment.advert = Advert.find params[:advert][:id]
     @comment.user = current_user
-    puts @comment
 
     respond_to do |format|
       if @comment.save
@@ -78,7 +77,7 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     respond_to do |format|
-      format.json { render json: "OK", status: :OK }
+      format.json { head :no_content }
     end
   end
 end
