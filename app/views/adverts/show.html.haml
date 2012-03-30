@@ -1,12 +1,24 @@
-%p#notice= notice
-
 %p
-  %b Text:
-  Author: 
-  = @advert.user.email
+  %b 
   = image_tag @advert.image.url(:medium), :alt => "AdImage"
+  Author:
+  = @advert.user.email
   = raw safe_textilize(@advert.text)
-
-= link_to 'Edit', edit_advert_path(@advert)
-\|
-= link_to 'Back', adverts_path
+  = link_to 'Edit', edit_advert_path(@advert)
+  \|
+  = link_to 'Back', adverts_path
+  %br
+  Comments
+  %br
+  - if !@advert.comments.empty?
+    - @advert.comments.each do |comment|
+      %p.comment
+        = raw safe_textilize(comment.text)
+        = link_to 'Edit', edit_comment_path(comment)
+        = link_to 'Destroy', comment, :class => "delete_link"
+  - else
+    %p#noentry
+      No one commented it yet. Be the first who.
+  %p#comment_label 
+    New comment:
+  = render "comments/form"

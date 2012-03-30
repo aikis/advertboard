@@ -7,9 +7,6 @@
     = csrf_meta_tags
 
 %body
-  = link_to "All adverts", root_path
-  = link_to "All users", users_path
-  %br
   - if user_signed_in?
     You are signed in as 
     = current_user.full_name
@@ -22,9 +19,11 @@
     or
     = link_to image_tag("facebook.png", :size => "50x50"), user_omniauth_authorize_path(:facebook)
     = link_to image_tag("twitter.png", :size => "50x50"), user_omniauth_authorize_path(:twitter)
+  %br
+  = link_to "All adverts", root_path
+  = link_to "All users", users_path
     
-  %p{:class => "notice"} 
-    = notice
+  %p.notice#notice= notice
   %p{:class => "alert"}
     = alert
 

@@ -1,5 +1,6 @@
 class AdvertsController < ApplicationController
   before_filter :authenticate_user!, :except => [ :index, :show ]
+  load_and_authorize_resource
   # GET /adverts
   # GET /adverts.json
   def index
@@ -15,6 +16,7 @@ class AdvertsController < ApplicationController
   # GET /adverts/1.json
   def show
     @advert = Advert.find(params[:id])
+    @comment = Comment.new
 
     respond_to do |format|
       format.html # show.html.erb

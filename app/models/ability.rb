@@ -5,9 +5,10 @@ class Ability
 
     user ||= User.new
     can :manage, :all if user.role == "admin"
-    can :manage, Advert if user.role == "moderator"
-    can :manage, Advert, :user_id => user.id
+    can :manage, :all if user.role == "moderator"
+    can :manage, [Advert, Comment], :user_id => user.id
     can :read, :all
+    can :create, [Advert, Comment] if user.email?
     can [:update, :destroy], User, :id => user.id
 
     # Define abilities for the passed in user here. For example:

@@ -1,7 +1,8 @@
 Testapp::Application.routes.draw do
+  resources :comments
   resources :adverts
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => 'registrations' }
   root :to => "adverts#index"
   resources :users, :only => [:index, :show]
 

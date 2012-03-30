@@ -6,12 +6,12 @@
   %div
     = f.label :login
     %br
-    = f.text_field :login, :value => session["devise.facebook_data"].nickname
+    = f.text_field :login, :value => session["devise.facebook_data"] ? session["devise.facebook_data"].nickname : ""
 
   %div
     = f.label :full_name
     %br
-    = f.text_field :full_name, :value => session["devise.facebook_data"].name
+    = f.text_field :full_name, :value => session["devise.facebook_data"] ? session["devise.facebook_data"].name : ""
 
   %div
     = f.label :birthday
@@ -26,7 +26,7 @@
   %div
     = f.label :city
     %br
-    = f.text_field :city, :value => session["devise.facebook_data"].location
+    = f.text_field :city, :value => session["devise.facebook_data"] ? session["devise.facebook_data"].lcation : ""
 
   %div
     = f.label :state
@@ -46,7 +46,7 @@
   %div
     = f.label :email
     %br
-    = f.email_field :email, :value => session["devise.facebook_data"].email
+    = f.email_field :email, :value => session["devise.facebook_data"] ? session["devise.facebook_data"].email : ""
 
   %div
     = f.label :password

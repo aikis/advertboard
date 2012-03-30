@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :adverts, :dependent => :delete_all
+  has_many :comments, :dependent => :delete_all
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,
@@ -36,7 +37,7 @@ class User < ActiveRecord::Base
     if user = User.find_by_login(login)
         user
     else
-      User.create(:login => login, :password => Devise.friendly_token[0,20])
+      User.new(:login => login, :password => Devise.friendly_token[0,20])
     end
   end
 end

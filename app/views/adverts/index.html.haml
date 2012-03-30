@@ -28,5 +28,5 @@
           = link_to 'Destroy', advert, :confirm => 'Are you sure?', :method => :delete
 
 %br
-- if can? :create, Advert
+- if can? :create, @adverts.first
   = link_to 'New Advert', new_advert_path
