@@ -7,13 +7,14 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :login, :full_name, :birthday, :address, :city, :state, :country, :zip, :email, :password, :password_confirmation, :remember_me,  :latitude, :longitude, :gmaps
+  attr_accessible :login, :full_name, :birthday, :address, :city, :state, :country, :zip, :email, :password, :password_confirmation, :remember_me,  :latitude, :longitude, :gmaps, :role
 
   # Validate all fields are not empty
   validates :login, :full_name, :birthday, :address, :city, :state, :country, :zip, :presence => true
 
   # Roles [Cancan]
   ROLES = %w[admin moderator user]
+  LIST_ROLES = {ROLES[0] => 0, ROLES[1]=> 1, ROLES[2] => 2}
 
   # Gmaps location
   acts_as_gmappable :check_process => false, :validation => false

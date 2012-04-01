@@ -69,3 +69,6 @@ gem 'tanker'
 
 # To use textile style
 gem 'RedCloth'
+
+# Rails admin panel
+gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'

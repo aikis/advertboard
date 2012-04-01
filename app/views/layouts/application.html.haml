@@ -29,4 +29,6 @@
 
   = yield
   
+  - if can? :access, :rails_admin
+    %p= link_to "Administration panel", "/admin"
   = yield :scripts
