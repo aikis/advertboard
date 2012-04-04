@@ -3,9 +3,41 @@
 # This model initially had no columns defined.  If you add columns to the
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+admin:
+  login: Aikis
+  address: Kupali
+  city: Minsk
+  state: Minsk
+  country: Belarus
+  zip: 220030
+  birthday: 2012-03-02
+  full_name: Maxim
+  email: g@g.com
+  encrypted_password: $2a$10$5eT9NP/xW7I9GSMD0OeH7e8CJ9rEWLa8lCZ8Mkj1twVXu6Lf4Vw66
+  role: admin
+
+user:
+  login: Aikis
+  address: Kupali
+  city: Minsk
+  state: Minsk
+  country: Belarus
+  zip: 220030
+  birthday: 2012-03-02
+  full_name: Maxim
+  email: g2@g.com
+  encrypted_password: $2a$10$5eT9NP/xW7I9GSMD0OeH7e8CJ9rEWLa8lCZ8Mkj1twVXu6Lf4Vw66
+  role: user
+
+moder:
+  login: Aikis
+  address: Kupali
+  city: Minsk
+  state: Minsk
+  country: Belarus
+  zip: 220030
+  birthday: 2012-03-02
+  full_name: Maxim
+  email: g3@g.com
+  encrypted_password: $2a$10$5eT9NP/xW7I9GSMD0OeH7e8CJ9rEWLa8lCZ8Mkj1twVXu6Lf4Vw66
+  role: moderator

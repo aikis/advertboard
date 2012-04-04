@@ -2,6 +2,10 @@
 
 one:
   text: MyText
+  user: admin
+  advert: one
 
 two:
   text: MyText
+  user: user
+  advert: two

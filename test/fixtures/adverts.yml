@@ -2,6 +2,8 @@
 
 one:
   text: MyText
+  user: admin
 
 two:
   text: MyText
+  user: user

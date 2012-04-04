@@ -4,16 +4,10 @@
   %tr
     %th Name
     %th
-    %th
-    %th
 
   - @users.each do |user|
     %tr
       %td= user.full_name
       %td= link_to 'Show', user
-      -if can? :update, user
-        %td= link_to 'Edit', edit_user_registration_path
-      -if can? :destroy, user
-        %td= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete
 %br
 = gmaps4rails(@json)

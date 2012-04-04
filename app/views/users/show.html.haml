@@ -4,7 +4,4 @@
   = @user.email
   = @user.birthday.strftime("Borned on %e of %b, %Y")
   = gmaps4rails(@json)
-- if can? :update, @user
-  = link_to 'Edit', edit_user_registration_path
-  \|
 = link_to 'Back', users_path
