@@ -5,20 +5,17 @@ require File.expand_path('../application', __FILE__)
 Testapp::Application.initialize!
 
 # Credentials for Gmail
+# Need to generate 2-step auth GMail account first!
 Testapp::Application.configure do
-  require 'tlsmail'
-  OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
-  ActionMailer::Base.delivery_method = :smtp
-  ActionMailer::Base.perform_deliveries = true
-  ActionMailer::Base.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default :charset => "utf-8"
   ActionMailer::Base.smtp_settings = {
-    :enable_starttls_auto => true,  
-    :address            => 'smtp.gmail.com',
-    :port               => 587,
-    :tls                  => true,
-    :domain             => 'gmail.com',
-    :authentication     => :plain,
-    :user_name          => 'aikismax@gmail.com',
-    :password           => 'Aikis13151725#@&#)%@'
+  :address              => "smtp.gmail.com",
+  :port                 => 587,
+  :user_name            => "maxfortests@gmail.com",
+  :password             => 'hiyzmspfxwqujrcg',
+  :authentication       => "plain",
+  :enable_starttls_auto => true
   }
 end
