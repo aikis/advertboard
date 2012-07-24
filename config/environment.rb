@@ -18,7 +18,7 @@ Testapp::Application.configure do
     :tls                  => true,
     :domain             => 'gmail.com',
     :authentication     => :plain,
-    :user_name          => 'aikismax@gmail.com',
-    :password           => 'Aikis13151725#@&#)%@'
+    :user_name          => 'user@gmail.com',
+    :password           => 'secret'
   }
 end
