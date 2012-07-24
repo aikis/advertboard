@@ -13,8 +13,8 @@ Testapp::Application.configure do
   ActionMailer::Base.smtp_settings = {
   :address              => "smtp.gmail.com",
   :port                 => 587,
-  :user_name            => "maxfortests@gmail.com",
-  :password             => 'hiyzmspfxwqujrcg',
+  :user_name            => "username@gmail.com",
+  :password             => 'secret',
   :authentication       => "plain",
   :enable_starttls_auto => true
   }
